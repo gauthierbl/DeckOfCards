@@ -9,9 +9,9 @@ Within one of your classes, you must provide two operations:
 Shuffle returns no value, but results in the cards in the deck being randomly permuted.
 
 ## dealOneCard()
-This function should return one card from the deck to the caller. Specifically, a call to shuffle followed by 52 calls
-to dealOneCard() should result in the caller being provided all 52 cards of the deck in a random order. If the caller
-then makes a 53rd call dealOneCard(), no card is dealt.
+This function should return one card from the deck to the caller. Specifically, a call to `shuffle()` followed by 52
+calls to `dealOneCard()` should result in the caller being provided all 52 cards of the deck in a random order. If the
+caller then makes a 53rd call `dealOneCard()`, no card is dealt.
 
 # Shuffle Algorithm
 This implementation uses the [Fisher–Yates shuffle](http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle).
@@ -37,5 +37,6 @@ Fisher-Yates, I can use it as a baseline for testing. If I give `Collections.shu
 randomness and the same list of objects to shuffle) as my `Shuffler` the results should be the same.
 
 # Improvements
-* PlayingCard FaceValue of an Ace should be able to be represented as high or low.
+* `PlayingCard` `FaceValue` of an Ace should be able to be represented as high or low.
 * Spring should be used for dependency injection.
+* Replace `Assert` class with Spring `Assert` class
