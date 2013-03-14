@@ -33,6 +33,7 @@ public class Shuffler {
      * @param <T>               The type of object that will be shuffled
      */
     public <T> void shuffle(List<T> objectsToShuffle) {
+        Assert.isNotEmpty(objectsToShuffle, "shuffle(...):objectsToShuffle must not be empty!");
 
         // start at back and work forward
         for (int i = objectsToShuffle.size() - 1; i > 1; i--) {
