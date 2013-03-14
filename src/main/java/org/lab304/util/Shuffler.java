@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Provides a way to shuffle objects.
+ * Provides a way to shuffle objects. This implements a Fisher-Yates shuffle.
  */
 public class Shuffler {
+
     Random randomNumberGenerator;
 
     /**
@@ -28,7 +29,7 @@ public class Shuffler {
     /**
      * Shuffle elements in a List. This modifies the given list.
      *
-     * @param objectsToShuffle, the List to shuffle. This object wil be modified
+     * @param objectsToShuffle  The List to shuffle. This object wil be modified
      * @param <T>               The type of object that will be shuffled
      */
     public <T> void shuffle(List<T> objectsToShuffle) {
