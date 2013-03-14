@@ -2,6 +2,8 @@ package org.lab304.deckofcards;
 
 import org.lab304.util.Shuffler;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -9,7 +11,32 @@ import java.util.Stack;
  */
 public class Deck {
 
-    Stack<Card> cards = new Stack<Card>();
+    /**
+     * We could use a Stack or a Queue but random access for the shuffle is more important than the easy of use
+     * provided by Queue and Stack. Also if the deck is not shuffled it is important to get the cards back in their
+     * original order. I'm disappointed that the JDK does not have a Queue that implements RandomAccess.
+     * <p/>
+     * Queue's random access was to slow (travers from start or end to get to the element).
+     * Stack's FILO order would not allow the original order to be preserved in dealOneCard() (We would be dealing from
+     * the bottom of the deck, that can get you shot in some circles!)
+     */
+    List<Card> cards = new ArrayList<Card>();
+
+    /**
+     * Creates a Deck with the give card list.
+     *
+     * @param cardList the initial ordering of cards
+     */
+    public Deck(List<Card> cardList) {
+        cards.addAll(cardList);
+    }
+
+    /**
+     * Creates an empty Deck.
+     */
+    public Deck() {
+        this(new Stack<Card>());
+    }
 
     /**
      * Shuffles the Deck, insuring that the {@link Card}s are in a random order.
@@ -29,10 +56,19 @@ public class Deck {
     public Card dealOneCard() {
         Card result = null;
 
-        if (!cards.empty()) {
-            cards.pop();
+        if (!cards.isEmpty()) {
+            result = cards.remove(0);
         }
 
         return result;
+    }
+
+    /**
+     * The current size of the deck or how many cards are currently in the deck.
+     *
+     * @return the number of cards in the deck.
+     */
+    public int getSize() {
+        return cards.size();
     }
 }

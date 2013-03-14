@@ -1,6 +1,6 @@
 package org.lab304.deckofcards.playingcard;
 
-import org.apache.commons.lang.builder.*;
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.lab304.deckofcards.Card;
 
 /**
@@ -23,6 +23,10 @@ public class PlayingCard implements Card {
 
     public FaceValue getFaceValue() {
         return faceValue;
+    }
+
+    public String getDisplayString() {
+        return faceValue + " " + suit;
     }
 
     @Override
