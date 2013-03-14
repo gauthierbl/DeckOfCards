@@ -35,3 +35,7 @@ externalizing `Shuffler`'s randomness I can better control the testing environme
 My code uses an algorithm similar to the algorithm used by `Collections.shuffle()`. Because the JDK also uses
 Fisher-Yates, I can use it as a baseline for testing. If I give `Collections.shuffle()` the same input (the same
 randomness and the same list of objects to shuffle) as my `Shuffler` the results should be the same.
+
+# Improvements
+* PlayingCard FaceValue of an Ace should be able to be represented as high or low.
+* Spring should be used for dependency injection.
