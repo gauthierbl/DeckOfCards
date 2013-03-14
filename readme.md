@@ -28,11 +28,10 @@ swapping the current element with a random element in the front. This removes th
 memory. A very good visual explanation can be found [here](http://bost.ocks.org/mike/shuffle/). See the last example.
 
 ## How was randomness tested?
-Testing something that is random is a bit of a trick. A good starting point is to control the randomness by using a seed.
-The seed ensures that I get back the same "random" numbers every time. It also helps that `Shuffler`'s constructor
-allows a client to pass in a source of randomness (represented by the java `Random` class). By externalizing `Shuffler`'s
-randomness I can simplify its testing.
+Testing randomness can be difficult -- it's random. I implemented `Shuffler`'s constructors to make the implementation
+more testable by allowing the client to pass in a source of randomness represented by the Java `Random` class. By
+externalizing `Shuffler`'s randomness I can better control the testing environment.
 
-Given that the JDK folks and I think alike I figured it would be a good idea to use `Collections.shuffle()` as baseline
-for a test. If I gave `Collections.shuffle()` the same input (same randomness, same list of objects to shuffle) as my
-`Shuffler` then the results should be the same.
+My code uses an algorithm similar to the algorithm used by `Collections.shuffle()`. Because the JDK also uses
+Fisher-Yates, I can use it as a baseline for testing. If I give `Collections.shuffle()` the same input (the same
+randomness and the same list of objects to shuffle) as my `Shuffler` the results should be the same.
